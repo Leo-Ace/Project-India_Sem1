@@ -32,7 +32,7 @@ function About() {
           <ul className="nav nav-pills mb-3 pb-3" id="pills-tab" role="tablist">
             <li className="nav-item" role="presentation">
               <button
-                className={cx("nav-link", "active")}
+                className={cx("nav-link", "active", "rounded-0")}
                 id="introduction"
                 data-toggle="pill"
                 data-target="#pills-home"
@@ -46,7 +46,7 @@ function About() {
             </li>
             <li className="nav-item" role="presentation">
               <button
-                className={cx("nav-link")}
+                className={cx("nav-link", "rounded-0")}
                 id="contact"
                 data-toggle="pill"
                 data-target="#pills-profile"
@@ -115,7 +115,7 @@ function About() {
           <ul className="nav nav-pills mb-3 pb-3" id="pills-tab" role="tablist">
             <li className="nav-item" role="presentation">
               <button
-                className={cx("nav-link", "active")}
+                className={cx("nav-link", "active", "rounded-0")}
                 id="memberone"
                 data-toggle="pill"
                 data-target="#pills-one"
@@ -129,7 +129,7 @@ function About() {
             </li>
             <li className="nav-item" role="presentation">
               <button
-                className={cx("nav-link")}
+                className={cx("nav-link", "rounded-0")}
                 id="membertwo"
                 data-toggle="pill"
                 data-target="#pills-two"

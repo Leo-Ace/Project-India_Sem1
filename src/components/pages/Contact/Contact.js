@@ -48,14 +48,14 @@ function Contact() {
                   type="text"
                   name=""
                   placeholder="Name *"
-                  className={cx("form-control p-4 w-50 mr-2")}
+                  className={cx("form-control p-4 w-50 mr-2 rounded-0")}
                   required
                 />
                 <input
                   type="number"
                   name=""
                   placeholder="Phone *"
-                  className={cx("form-control p-4 w-50")}
+                  className={cx("form-control p-4 w-50 rounded-0")}
                   required
                 />
               </div>
@@ -64,19 +64,19 @@ function Contact() {
                   type="text"
                   name=""
                   placeholder="Email *"
-                  className={cx("form-control p-4 w-50 mr-2")}
+                  className={cx("form-control p-4 w-50 mr-2 rounded-0")}
                   required
                 />
                 <input
                   type="text"
                   name=""
                   placeholder="Subject *"
-                  className={cx("form-control p-4 w-50")}
+                  className={cx("form-control p-4 w-50 rounded-0")}
                   required
                 />
               </div>
               <div className={cx("form-group")}>
-                <textarea rows="5" cols="" placeholder="Your message..." className={cx("form-control w-100 p-4")}></textarea>
+                <textarea rows="5" cols="" placeholder="Your message..." className={cx("form-control w-100 p-4 rounded-0")}></textarea>
               </div>
               <button type="submit">Send Message</button>
             </form>
