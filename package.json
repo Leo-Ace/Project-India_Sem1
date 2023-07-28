@@ -3,19 +3,36 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-icons/all-files": "^4.1.0",
+    "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.4.0",
+    "bootstrap": "^4.6.2",
+    "classnames": "^2.3.2",
+    "eslint-config-react-app": "^7.0.1",
+    "jquery": "^3.7.0",
+    "json-server": "^0.17.3",
+    "popper.js": "^1.16.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
+    "react-icons": "^4.9.0",
+    "react-owl-carousel": "^2.3.3",
+    "react-redux": "^8.1.1",
+    "react-router-dom": "^6.12.1",
+    "react-scripts": "^5.0.1",
+    "redux": "^4.2.1",
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.7.18",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "json-server db.json --port 8000"
   },
   "eslintConfig": {
     "extends": [

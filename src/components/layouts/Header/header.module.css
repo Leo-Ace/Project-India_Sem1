@@ -1,0 +1,346 @@
+:root {
+  --colorHover: rgb(238, 63, 63);
+}
+
+header {
+  position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  z-index: 1000;
+  background-color: #fff;
+}
+
+nav, nav div ul {
+  background-color: #fff !important;
+}
+
+#scrollTop {
+  position: fixed !important;
+  bottom: 100px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  z-index: 1002;
+  line-height: 45px;
+  text-align: center;
+  background-color: var(--colorHover);
+  cursor: pointer;
+  border-radius: 50%;
+  visibility: hidden;
+  transition: all 0.3s linear;
+}
+#scrollTop:hover {
+  background-color: rgb(107, 76, 76);
+}
+
+.header-top {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.178);
+}
+
+.header-top ul .box-language {
+  border-right: 1px solid rgba(128, 128, 128, 0.219);
+}
+
+.header-top ul li>div:first-child {
+  cursor: pointer;
+}
+
+.header-top ul .box-language>div img {
+  width: 30px;
+}
+
+#collapsibleNavId {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+#collapsibleNavId .nav-link, .box-menu_toggle .nav-link {
+  color: #000000;
+  opacity: 0.8;
+  font-weight: bold;
+  transition: all 0.2s linear;
+}
+
+#collapsibleNavId .nav-item {
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+#collapsibleNavId .nav-link:hover, .box-menu_toggle .nav-link:hover, #collapsibleNavId .nav-item:hover>div:first-child, #collapsibleNavId .nav-item:hover>a {
+  color: var(--colorHover) !important;
+  opacity: 1;
+}
+
+#collapsibleNavId li.active .nav-link {
+  color: var(--colorHover) !important;
+  opacity: 1;
+}
+
+#collapsibleNavId .nav-link:active {
+  color: var(--colorHover) !important;
+  opacity: 1;
+}
+
+#collapsibleNavId .nav-link:focus {
+  color: var(--colorHover) !important;
+  opacity: 1;
+}
+
+#collapsibleNavId .menu-child {
+  visibility: hidden;
+  width: 300% !important;
+  transform-origin: 50% 0%;
+  opacity: 0;
+  overflow: visible;
+  transition: all 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
+  transform: perspective(400px) rotateX(-90deg);
+  box-shadow: 0px 1px 3px 0px rgba(0,0,0,.2);
+}
+
+#collapsibleNavId .box-user .menu-child {
+  width: 150px !important;
+}
+
+#collapsibleNavId .dropdown:hover .menu-child {
+  visibility: visible;
+  opacity: 1;
+  transform: perspective(400px) rotateX(0deg);
+}
+
+#collapsibleNavId .menu-child .link-menu_child {
+  color: black !important;
+  transition: all 0.2s linear;
+}
+
+#collapsibleNavId .menu-child .link-menu_child div {
+  text-transform: capitalize;
+  transition: all 0.2s linear;
+  transform: translateX(0);
+  font-weight: bold;
+  color: rgb(82, 82, 82);
+}
+
+#collapsibleNavId .menu-child .link-menu_child:hover div {
+  transition: all 0.2s linear;
+  color: var(--colorHover) !important;
+  transform: translateX(10px) !important;
+}
+
+#collapsibleNavId ul:last-child .nav-item small {
+  top: -2px;
+  right: -6px;
+  width: 18px;
+  height: 18px;
+}
+
+#collapsibleNavId ul:last-child .nav-item.shopping-cart small {
+  top: -9px;
+  right: -10px;
+}
+
+.shopping-cart>div:last-child {
+  background-color: #fff;
+  right: 0;
+  box-shadow: 0 0 4px black;
+  width: 350px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
+  transform: translateY(15px) scale(0.5);
+  transform-origin: 85% 0;
+}
+
+.shopping-cart:hover>div:last-child {
+  transform: translateY(15px) scale(1);
+  visibility: visible;
+  opacity: 1;
+}
+
+.shopping-cart>div:last-child::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  right: 47px;
+  border: 10px solid rgb(255, 255, 255);
+  transform: rotate(45deg);
+  box-shadow: 0 0 4px black;
+}
+
+.shopping-cart>div:last-child::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 40px;
+  height: 20px;
+  width: 34px;
+  background-color: #fff;
+  z-index: 1;
+}
+
+.shopping-cart .box-prds {
+  border-bottom: 1px solid #000;
+}
+
+.shopping-cart .box-prds img {
+  width: 70px;
+}
+
+.shopping-cart .box-prds .prd .name {
+  font-size: 17px;
+  color: #000;
+  font-weight: 500;
+  transition: all 0.3s linear;
+}
+
+.shopping-cart .box-prds .prd .name:hover {
+  color: var(--colorHover);
+}
+
+.shopping-cart .box-prds .prd .quatity {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.shopping-cart .box-prds .prd .delete {
+  top: 20px;
+  right: 0;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.shopping-cart .box-prds .prd .delete:hover {
+  background-color: var(--colorHover);
+  color: #fff;
+}
+
+.shopping-cart .box-prds .prd .delete .icon-del {
+  padding: 2px 3px 1px 3px;
+  display: block;
+}
+
+.shopping-cart>div>div>div:last-child>.btnLink {
+  background: #000;
+  font-size: 17px;
+  z-index: 0;
+  letter-spacing: 1px;
+}
+
+.shopping-cart>div>div>div:last-child>.btnLink:last-child {
+  background: #0000007a;
+}
+
+.shopping-cart>div>div>div:last-child>.btnLink::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 0;
+  background: var(--colorHover);
+  transition: all 0.2s ease-in-out;
+  z-index: -1;
+}
+
+.shopping-cart>div>div>div:last-child>.btnLink:hover::before {
+  height: 100%;
+  background: var(--colorHover);
+}
+
+#form-search {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000000ad;
+  z-index: 1001;
+  display: none;
+}
+
+#form-search>div>div {
+  top: 50px;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  font-size: 50px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+#form-search>div>div>span {
+  transform-origin: 50% 52%;
+  border-radius: 50%;
+  transition: all 0.3s linear;
+  color: var(--colorHover);
+}
+
+#form-search>div>div:hover>span {
+  transform: rotate(180deg);
+  transition: all 0.3s linear;
+}
+
+#form-search>div>form>input {
+  padding: 15px 0;
+  outline: none;
+  border: 0;
+  background-color: transparent;
+  border-bottom: 1px solid red;
+  color: #fff;
+}
+
+#form-search>div>form>input::placeholder {
+  color: #fff;
+}
+
+#form-search>div>form>button {
+  padding: 15px 0 !important;
+  right: 0;
+  border: 0;
+  outline: none;
+  background-color: transparent;
+  color: #fff;
+  transition: all 0.2s linear;
+  cursor: pointer;
+}
+
+#form-search>div>form>button:hover {
+  color: var(--colorHover);
+}
+
+.box-prds>.prd .name>div {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;  /* số dòng hiển thị */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-menu_toggle {
+  visibility: hidden;
+  opacity: 0;
+  top: 0 !important;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0000002c;
+  z-index: 10000;
+  transition: all 0.3s linear;
+}
+
+.header-menu_toggle .icon-exit {
+  border-top: 1px solid black;
+  top: 0;
+  right: -44px;
+}
+
+.box-menu_toggle {
+  transform: translateX(-1000px);
+  transition: all 0.5s linear;
+}
+
+.box-menu_toggle .dropdown-item {
+  transition: all 0.2s linear;
+}
+
+.box-menu_toggle .dropdown-item:hover {
+  background-color: rgba(128, 128, 128, 0.329) !important;
+  color: var(--colorHover) !important;
+}

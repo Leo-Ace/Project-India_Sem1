@@ -1,0 +1,126 @@
+.box-main>.filter>div>p {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.452);
+}
+
+.box-main>.filter>div ul>li, .box-main>.filter>div ul>li label {
+  transition: all 0.2s linear;
+  cursor: pointer;
+}
+
+.box-main>.filter>div ul li:hover {
+  color: black !important;
+}
+
+.box-main>.filter>div:first-child ul>li>span:last-child {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  background-color: rgba(128, 128, 128, 0.212);
+  border-radius: 50%;
+}
+
+.box-main>.filter>div:last-child>p>span {
+  cursor: pointer;
+}
+
+.box-main>.filter>div:last-child>p>span:hover {
+  color: var(--colorHover) !important;
+}
+
+.box-main>.filter>div:last-child ul li {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: all 0.2s linear;
+}
+
+.box-products>div:first-child>div>select {
+  outline: 0;
+  border: 1px solid black;
+  font-weight: bold;
+}
+
+.box-main>.filter>div:last-child ul li:hover {
+  opacity: 1;
+}
+
+main .box-products .box-items .item .card-body>.title {
+  transition: all 0.2s  ;
+}
+
+main .box-products .box-items .item .card-body>.title:hover {
+  color: rgb(238, 63, 63) !important;
+}
+
+main .box-products .box-items .item .box-act {
+  top: 40px;
+  right: 0;
+}
+
+main .box-products .box-items .item .box-act>ul>li {
+  transform: rotateY(90deg);
+  transform-origin: 100% 0;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.39);
+  transition: all 0.3s linear;
+}
+
+main .box-products .box-items .item .box-act>ul>li:nth-child(1) {
+  transition: all 0.25s linear;
+}
+main .box-products .box-items .item .box-act>ul>li:nth-child(2) {
+  transition: all 0.35s linear;
+}
+main .box-products .box-items .item .box-act>ul>li:nth-child(3) {
+  transition: all 0.45s linear;
+}
+
+main .box-products .box-items .item:hover .box-act>ul>li {
+  transform: rotateY(0deg);
+}
+
+main .box-products .box-items .item .box-act ul li {
+  width: 35px;
+  height: 35px;
+  line-height: 32px;
+  text-align: center;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+main .box-products .box-items .item .box-act ul li:hover {
+  background-color: var(--colorHover);
+  color: #fff !important;
+}
+
+main .box-products .box-items .item .hot_sale span {
+  font-size: 13px;
+  padding: 1px 6px;
+}
+
+.pagination>li>.active {
+  background-color: var(--colorHover) !important;
+  color: #fff;
+}
+
+.activeCateChild {
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25) !important;
+}
+
+.activeCateChild li {
+  opacity: 1 !important;
+  color: black !important;
+}
+
+.textStyle {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;  /* số dòng hiển thị */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.icon-exit_dropdown:hover span {
+  transition: all 0.2s linear;
+  background-color: rgb(255, 75, 75) !important;
+}

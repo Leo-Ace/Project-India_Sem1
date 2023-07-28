@@ -1,0 +1,23 @@
+.box-main {
+  line-height: 26px;
+  font-size: 18px;
+  color: #000 !important;
+}
+
+.box-main>div>h3>b {
+  background-color: #fff;
+}
+
+.box-main>div>ul {
+  border-bottom: 1px solid var(--colorHover);
+}
+
+.box-main>div>ul>li>button {
+  color: var(--colorHover);
+  border: 1px solid var(--colorHover) !important;
+  margin-right: 10px;
+}
+
+.box-main>div:first-child>div {
+  text-align: justify;
+}

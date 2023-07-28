@@ -1,0 +1,39 @@
+main>div:first-child>p {
+  font-size: 40px;
+}
+
+main form {
+  width: 60%;
+  min-width: 400px;
+  box-shadow: 0 0 6px black;
+}
+
+main form .form-group input {
+  outline: 0;
+  border: 0;
+  background-color: #0000000e;
+  border: 1px solid rgba(128, 128, 128, 0.733);
+  font-size: 20px;
+}
+
+main form .form-group input::placeholder {
+  font-size: 18px;
+}
+
+main form .form-group input:focus {
+  border: 1px solid red;
+}
+
+main form button {
+  outline: 0;
+  border: 0;
+  padding: 12px 20px;
+  background-color: var(--colorHover);
+  color: #fff;
+  font-weight: bold;
+  transition: all 0.3s linear;
+}
+
+main form button:hover {
+  background-color: rgb(255, 0, 0);
+}

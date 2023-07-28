@@ -1,0 +1,90 @@
+.headers {
+  border-bottom: 1px solid rgb(173, 173, 173);
+  padding-bottom: 10px;
+}
+
+.description {
+  text-align: justify;
+  line-height: 1.6;
+}
+
+.btn-group button, .btn-group input {
+  outline: 0;
+  border: 0;
+  font-size: 20px;
+  color: black;
+}
+
+.btn-group>div:first-child button:hover {
+  color: var(--colorHover) !important;
+}
+
+.btn-group>div:last-child button {
+  background-color: #000;
+  transition: all 0.2s linear;
+  z-index: 0;
+}
+
+.btn-group>div:last-child button::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: var(--colorHover);
+  transition: all 0.2s linear;
+  z-index: -1;
+}
+
+.btn-group>div:last-child button:hover::before {
+  height: 100%;
+}
+
+.wishlist {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.411);
+}
+
+.wishlist>div, .wishlist>div>span, .wishlist>div>h5 {
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+.wishlist>.active>span {
+  background-color: red;
+  color: #fff;
+}
+
+.wishlist>.active>h5 {
+  color: red;
+}
+
+.wishlist>div:hover>span {
+  background-color: var(--colorHover);
+  color: #fff;
+}
+
+.wishlist>div:hover>h5 {
+  color: var(--colorHover);
+}
+
+.wishlist>.active:hover>span {
+  background-color: red;
+  color: #fff;
+}
+
+.wishlist>.active:hover>h5 {
+  color: red;
+}
+
+.group-color ul li, .group-color ul li input, .group-color ul li label {
+  cursor: pointer;
+}
+
+.box-main>div:first-child {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.473);
+}
+
+.box-main .form-cmt {
+  box-shadow: none;
+}

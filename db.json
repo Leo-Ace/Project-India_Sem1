@@ -1,0 +1,594 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Laundry equipment"
+    },
+    {
+      "id": 2,
+      "name": "Kitchen equipment"
+    },
+    {
+      "id": 3,
+      "name": "Air conditioning equipment"
+    },
+    {
+      "id": 4,
+      "name": "Cleaning equipment"
+    },
+    {
+      "id": 5,
+      "name": "Lighting equipment"
+    },
+    {
+      "id": 6,
+      "name": "Audiovisual equipment"
+    },
+    {
+      "id": 7,
+      "name": "Personal care equipment"
+    },
+    {
+      "id": 8,
+      "name": "Hand tools"
+    },
+    {
+      "id": 9,
+      "name": "Entertainment equipment"
+    },
+    {
+      "id": 10,
+      "name": "Office equipment"
+    }
+  ],
+  "catechild": [
+    {
+      "id": 1,
+      "id_cate": 1,
+      "name": "Washing machine"
+    },
+    {
+      "id": 2,
+      "id_cate": 1,
+      "name": "Clothes dryer"
+    },
+    {
+      "id": 3,
+      "id_cate": 1,
+      "name": "Iron"
+    },
+    {
+      "id": 4,
+      "id_cate": 2,
+      "name": "Electric stove"
+    },
+    {
+      "id": 5,
+      "id_cate": 2,
+      "name": "Griller"
+    },
+    {
+      "id": 6,
+      "id_cate": 2,
+      "name": "Dishwasher"
+    },
+    {
+      "id": 7,
+      "id_cate": 2,
+      "name": "Fridge"
+    },
+    {
+      "id": 8,
+      "id_cate": 2,
+      "name": "Electric cooker"
+    },
+    {
+      "id": 9,
+      "id_cate": 3,
+      "name": "Electric fan"
+    },
+    {
+      "id": 10,
+      "id_cate": 3,
+      "name": "Air conditioning"
+    },
+    {
+      "id": 11,
+      "id_cate": 4,
+      "name": "Vacuum cleaner"
+    },
+    {
+      "id": 12,
+      "id_cate": 5,
+      "name": "Light"
+    },
+    {
+      "id": 13,
+      "id_cate": 5,
+      "name": "Lamp"
+    },
+    {
+      "id": 14,
+      "id_cate": 6,
+      "name": "Television"
+    },
+    {
+      "id": 15,
+      "id_cate": 6,
+      "name": "Music speaker"
+    },
+    {
+      "id": 16,
+      "id_cate": 6,
+      "name": "Camera"
+    },
+    {
+      "id": 17,
+      "id_cate": 7,
+      "name": "Hairdryer"
+    },
+    {
+      "id": 18,
+      "id_cate": 7,
+      "name": "Shavers"
+    },
+    {
+      "id": 19,
+      "id_cate": 8,
+      "name": "Drill"
+    },
+    {
+      "id": 20,
+      "id_cate": 8,
+      "name": "Saw machine"
+    },
+    {
+      "id": 21,
+      "id_cate": 9,
+      "name": "Game console"
+    },
+    {
+      "id": 22,
+      "id_cate": 10,
+      "name": "Computer"
+    },
+    {
+      "id": 23,
+      "id_cate": 10,
+      "name": "Printer"
+    }
+  ],
+  "brands": [
+    {
+      "id": 1,
+      "name": "Elmich",
+      "thumbnail": "../../images/brand_elmich.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Whirlpool",
+      "thumbnail": "../../images/brand_whirlpool.png"
+    },
+    {
+      "id": 3,
+      "name": "Amana",
+      "thumbnail": "../../images/brand_amana.png"
+    },
+    {
+      "id": 4,
+      "name": "LG",
+      "thumbnail": "../../images/brand_lg.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Frigidaire",
+      "thumbnail": "../../images/brand_frigidaire.png"
+    },
+    {
+      "id": 6,
+      "name": "Miele",
+      "thumbnail": "../../images/brand_miele.png"
+    },
+    {
+      "id": 7,
+      "name": "Bosch",
+      "thumbnail": "../../images/brand_bosch.png"
+    },
+    {
+      "id": 8,
+      "name": "KitchenAid",
+      "thumbnail": "../../images/brand_kitchenAid.png"
+    },
+    {
+      "id": 9,
+      "name": "Samsung",
+      "thumbnail": "../../images/brand_samsung.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Gazenau",
+      "thumbnail": "../../images/brand_gazenau.jpg"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "id_brand": 1,
+      "id_cate": 2,
+      "id_catechild": 8,
+      "name": "Elmich 1.5L high frequency electronic rice cooker RCE-3914 IH RICECOOKER",
+      "price": 100,
+      "discount": 8,
+      "color": "black",
+      "thumbnail": "../../images/elmich-ncd1.jpg",
+      "consumption": 0.8,
+      "evaluate": 4,
+      "description": "High-end Household Brand from Europe"
+    },
+    {
+      "id": 2,
+      "id_brand": 1,
+      "id_cate": 2,
+      "id_catechild": 4,
+      "name": "Elmich ICE-3493 triple induction hob",
+      "price": 200,
+      "discount": 5,
+      "color": "black",
+      "thumbnail": "../../images/elmich-bt1.jpg",
+      "consumption": 0.4,
+      "evaluate": 5,
+      "description": "The cooktop uses German Schott-ceran glass, which has good quality and is popular on the market today."
+    },
+    {
+      "id": 3,
+      "id_brand": 1,
+      "id_cate": 4,
+      "id_catechild": 11,
+      "name": "Elmich hood HOE-3931",
+      "price": 150,
+      "discount": 2,
+      "color": "white",
+      "thumbnail": "../../images/elmich-mhb1.jpg",
+      "consumption": 0.6,
+      "evaluate": 4,
+      "description": "Activated carbon technology helps to thoroughly deodorize: All smoke and food odors are sucked into the engine compartment, passing through the charcoal filter and returning the cleaned air to the kitchen."
+    },
+    {
+      "id": 4,
+      "id_brand": 2,
+      "id_cate": 1,
+      "id_catechild": 1,
+      "name": "Sanicare 8KG front load washing machine White",
+      "price": 100,
+      "discount": 6,
+      "color": "white",
+      "thumbnail": "../../images/whirlpool-mg1.jpg",
+      "consumption": 0.6,
+      "evaluate": 3,
+      "description": "Separate deodorant water eliminates 99.9% of bacteria in the wash cycle"
+    },
+    {
+      "id": 5,
+      "id_brand": 2,
+      "id_cate": 2,
+      "id_catechild": 7,
+      "name": "Refrigerator 4 doors 594L",
+      "price": 120,
+      "discount": 6,
+      "color": "black",
+      "thumbnail": "../../images/whirlpool-tl1.png",
+      "consumption": 0.6,
+      "evaluate": 2,
+      "description": "Automatically adjust the temperature of the coolers to the optimal mode"
+    },
+    {
+      "id": 6,
+      "id_brand": 2,
+      "id_cate": 2,
+      "id_catechild": 6,
+      "name": "Full sound dishwasher 14 sets",
+      "price": 120,
+      "discount": 8,
+      "color": "white",
+      "thumbnail": "../../images/whirlpool-mrc1.jpg",
+      "consumption": 0.6,
+      "evaluate": 3,
+      "description": "For perfect washing results without pre-rinsing, soaking or scrubbing by hand, while effectively reducing water consumption and costs."
+    },
+    {
+      "id": 7,
+      "id_brand": 3,
+      "id_cate": 1,
+      "id_catechild": 1,
+      "name": "AMANA® DISHWASHER WITH TRIPLE FILTER WASH SYSTEM",
+      "price": 160,
+      "discount": 3,
+      "color": "black",
+      "thumbnail": "../../images/amana-mrc1.jpg",
+      "consumption": 0.6,
+      "evaluate": 4,
+      "description": "Triple Filter Wash System. Quick Wash Cycle."
+    },
+    {
+      "id": 8,
+      "id_brand": 4,
+      "id_cate": 6,
+      "id_catechild": 14,
+      "name": "Tivi LG UHD UQ8000 65 inch 4K Smart TV | 65UQ8000",
+      "price": 160,
+      "discount": 3,
+      "color": "black",
+      "thumbnail": "../../images/lg-tv1.webp",
+      "consumption": 0.6,
+      "evaluate": 4,
+      "description": "1 out of 1 reviewer received a sample product or entered a promotion"
+    },
+    {
+      "id": 9,
+      "id_brand": 4,
+      "id_cate": 6,
+      "id_catechild": 15,
+      "name": "LG XBOOM XL7S",
+      "price": 160,
+      "discount": 3,
+      "color": "black",
+      "thumbnail": "../../images/lg-lnn.png",
+      "consumption": 0.6,
+      "evaluate": 5,
+      "description": "250W output 8-inch woofer - Fill the space with super loud sound"
+    },
+    {
+      "id": 10,
+      "id_brand": 4,
+      "id_cate": 1,
+      "id_catechild": 3,
+      "name": "LG DUALCOOL™ Inverter 2-way air conditioner 9,000 BTU (1HP) |B10API",
+      "price": 160,
+      "discount": 4,
+      "color": "black",
+      "thumbnail": "../../images/lg-mdh1.webp",
+      "consumption": 0.6,
+      "evaluate": 5,
+      "description": "Enhanced Ion Plasmaster Gas Filter"
+    },
+    {
+      "id": 11,
+      "id_brand": 5,
+      "id_cate": 1,
+      "id_catechild": 3,
+      "name": "Frigidaire 6.7 Cu. Ft. Free Standing Gas Dryer",
+      "price": 160,
+      "discount": 4,
+      "color": "white",
+      "thumbnail": "../../images/frigidaire-ms.webp",
+      "consumption": 0.6,
+      "evaluate": 3,
+      "description": "The Frigidaire 6.7 Cu. Ft. Large Capacity Free Standing Gas Dryer allows you to fit more in every load. Dry clothes fast and save time with the Quick Dry Cycle."
+    },
+    {
+      "id": 12,
+      "id_brand": 6,
+      "id_cate": 1,
+      "id_catechild": 3,
+      "name": "STEAM IRON B2847",
+      "price": 160,
+      "discount": 4,
+      "color": "white",
+      "thumbnail": "../../images/miele-bu1.webp",
+      "consumption": 0.6,
+      "evaluate": 5,
+      "description": "STEAM IRON B2847 is a steam iron set with display and steamer for perfect ironing results and most convenience."
+    },
+    {
+      "id": 13,
+      "id_brand": 6,
+      "id_cate": 1,
+      "id_catechild": 3,
+      "name": "WASHING DRYER COMBINED",
+      "price": 160,
+      "discount": 4,
+      "color": "white",
+      "thumbnail": "../../images/miele-mg1.webp",
+      "consumption": 0.9,
+      "evaluate": 3,
+      "description": "The device combines a high-end washing machine and a dryer into one unit, suitable for small spaces and spaces that don't have enough room for two devices."
+    },
+    {
+      "id": 14,
+      "id_brand": 6,
+      "id_cate": 4,
+      "id_catechild": 11,
+      "name": "SMUL0 . HANDLE VACUUM VACUUM",
+      "price": 160,
+      "discount": 7,
+      "color": "red",
+      "thumbnail": "../../images/miele-mhb1.webp",
+      "consumption": 0.9,
+      "evaluate": 3,
+      "description": "If you're looking for the most powerful, easy-to-use cordless vacuum on the market and you have bare floors like hardwood, trim, laminate and tile as well as area rugs and wall rugs."
+    },
+    {
+      "id": 15,
+      "id_brand": 6,
+      "id_cate": 2,
+      "id_catechild": 5,
+      "name": "Oven H 2766 BP",
+      "price": 160,
+      "discount": 7,
+      "color": "black",
+      "thumbnail": "../../images/miele-ln1.jpg",
+      "consumption": 0.3,
+      "evaluate": 4,
+      "description": "More refined, more convenient and especially focused on enhancing performance - Miele is continuing to upgrade new oven models (launched in 2023) from the H2000 series."
+    },
+    {
+      "id": 16,
+      "id_brand": 7,
+      "id_cate": 8,
+      "id_catechild": 19,
+      "name": "GBM 400 PROFESSIONAL",
+      "price": 100,
+      "discount": 4,
+      "color": "blu",
+      "thumbnail": "../../images/bosch-mk1.webp",
+      "consumption": 0.5,
+      "evaluate": 4,
+      "description": "Bold, collapsible and automatic chuck for easy and flexible drilling."
+    },
+    {
+      "id": 17,
+      "id_brand": 7,
+      "id_cate": 8,
+      "id_catechild": 20,
+      "name": "GST 12V-70 PROFESSIONAL",
+      "price": 120,
+      "discount": 7,
+      "color": "blu",
+      "thumbnail": "../../images/bosch-mc1.png",
+      "consumption": 0.5,
+      "evaluate": 5,
+      "description": "Light weight and extremely compact 12V professional battery powered chainsaw."
+    },
+    {
+      "id": 18,
+      "id_brand": 8,
+      "id_cate": 2,
+      "id_catechild": 8,
+      "name": "Multi-Purpose Electronic Cooker Slow Cooker and Timer",
+      "price": 170,
+      "discount": 7,
+      "color": "black",
+      "thumbnail": "../../images/kitchenAid-ncd1.jpg",
+      "consumption": 0.7,
+      "evaluate": 5,
+      "description": "Multi-function cooker with glass lid, slow cooking function, electronic timer for meals that are always ready every day. If you're busy, the slow cooker automatically switches to keep warm for up to four hours after the dish is done cooking."
+    },
+    {
+      "id": 19,
+      "id_brand": 8,
+      "id_cate": 2,
+      "id_catechild": 4,
+      "name": "Induction Cooker 2000 Watt Lacor - 69032",
+      "price": 170,
+      "discount": 7,
+      "color": "black",
+      "thumbnail": "../../images/kitchenAid-bt1.jpg",
+      "consumption": 0.7,
+      "evaluate": 4,
+      "description": "Dimensions: 30 x 50 x 6.5 cm. Material: Heat resistant glass. Power: 2,000W."
+    },
+    {
+      "id": 20,
+      "id_brand": 9,
+      "id_cate": 10,
+      "id_catechild": 22,
+      "name": "Galaxy Tab S8 | S8+ | S8 Ultra",
+      "price": 170,
+      "discount": 7,
+      "color": "black",
+      "thumbnail": "../../images/samsung-mtb1.png",
+      "consumption": 0.7,
+      "evaluate": 5,
+      "description": "The biggest Samsung Galaxy Tab S."
+    },
+    {
+      "id": 21,
+      "id_brand": 9,
+      "id_cate": 10,
+      "id_catechild": 22,
+      "name": "Galaxy Tab A7 Lite",
+      "price": 120,
+      "discount": 7,
+      "color": "black",
+      "thumbnail": "../../images/samsung-mtb2.png",
+      "consumption": 0.7,
+      "evaluate": 4,
+      "description": "With a battery capacity of 5,100mAh* beyond expectations, Galaxy Tab A7 Lite gives you the freedom to experience a world of entertainment for a long time wherever you go, without having to carry a charger with you."
+    },
+    {
+      "id": 22,
+      "id_brand": 9,
+      "id_cate": 6,
+      "id_catechild": 15,
+      "name": "Speaker Tower MX-ST90B",
+      "price": 110,
+      "discount": 4,
+      "color": "black",
+      "thumbnail": "../../images/samsung-lnn1.webp",
+      "consumption": 0.5,
+      "evaluate": 5,
+      "description": "Immerse yourself in a music-filled party space with powerful 1700W omnidirectional sound."
+    },
+    {
+      "id": 23,
+      "id_brand": 9,
+      "id_cate": 2,
+      "id_catechild": 7,
+      "name": "Bespoke Refrigerator Top Freezer with Flexible Freezer 4 Modes Optimal Fresh+ in Quartz White/Crystal Pink, 348L",
+      "price": 170,
+      "discount": 5,
+      "color": "pink",
+      "thumbnail": "../../images/samsung-tl1.webp",
+      "consumption": 0.9,
+      "evaluate": 4,
+      "description": "Bespoke Refrigerator Top Freezer with Flexible Freezer 4 Modes Optimal Fresh+ in Quartz White/Crystal Pink, 348L."
+    },
+    {
+      "id": 24,
+      "id_brand": 9,
+      "id_cate": 1,
+      "id_catechild": 1,
+      "name": "AI Ecobubble™ smart washing machine with automatic washing and draining compartment, 11kg",
+      "price": 270,
+      "discount": 0,
+      "color": "pink",
+      "thumbnail": "../../images/samsung-mg1.png",
+      "consumption": 0.9,
+      "evaluate": 5,
+      "description": "AI Dispenser automatically distributes detergent. AI Control remembers, suggests washing modes. Ecobubble™ deep cleans, protects fibers."
+    },
+    {
+      "id": 25,
+      "id_brand": 9,
+      "id_cate": 4,
+      "id_catechild": 11,
+      "name": "Cordless vacuum cleaner Bespoke Jet (VS20A95993B)",
+      "price": 110,
+      "discount": 0,
+      "color": "black",
+      "thumbnail": "../../images/samsung-mhb1.png",
+      "consumption": 0.9,
+      "evaluate": 4,
+      "description": "The automatic cleaning station removes dirt and charges the battery easily. The multi-layer filter system filters 99.999% of superfine dust for more fresh air. Super strong suction up to 210W removes dust on all surfaces."
+    }
+  ],
+  "carts": [
+    {
+      "id": 1,
+      "id_product": 1,
+      "quantity": 1
+    },
+    {
+      "id": 2,
+      "id_product": 6,
+      "quantity": 1
+    },
+    {
+      "id": 7,
+      "id_product": 24,
+      "quantity": 1
+    }
+  ],
+  "wishlist": [
+    {
+      "id": 1,
+      "id_product": 24,
+      "state": 0
+    },
+    {
+      "id": 25,
+      "id_product": 13,
+      "state": 0
+    }
+  ]
+}

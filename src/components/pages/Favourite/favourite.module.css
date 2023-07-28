@@ -1,0 +1,24 @@
+.favouriteComponent table tbody tr td:last-child .btnDelete {
+  position: absolute;
+  outline: 0;
+  top: 10px;
+  right: 10px;
+  background-color: #fff !important;
+}
+
+.favouriteComponent table tbody tr td:last-child .btnDelete>span {
+  color: red;
+  transition: all 0.2s linear;
+}
+
+.favouriteComponent table tbody tr td:last-child .btnDelete:hover>span {
+  transform: scale(1.2);
+}
+
+.textStyle {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;  /* số dòng hiển thị */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
