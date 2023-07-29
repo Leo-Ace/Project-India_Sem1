@@ -26,7 +26,8 @@ function MainComponent({children}) {
       let result = [];
       await data1.forEach(async (item, index) => {
         await ProductsById(item.id_product, async (data2)=> {
-          result.push({...data2, quantity:item.quantity, id_cart:item.id, totalPrice: data2.price * item.quantity});
+          const n = await {...data2, quantity:item.quantity, id_cart:item.id, totalPrice: data2.price * item.quantity};
+          result.push(n);
           if(data1.length === index + 1) {
             const action = setCart(result);
             dispatch(action);
@@ -38,7 +39,8 @@ function MainComponent({children}) {
       let result = [];
       await data1.forEach(async (item, index) => {
         await ProductsById(item.id_product, async (data2)=> {
-          result.push({...data2, id_wishlist:item.id, status: item.status});
+          const n = {...data2, id_wishlist:item.id, status: item.status};
+          result.push(n);
           if(data1.length === index + 1) {
             const action = setWishlist(result); 
             dispatch(action);
