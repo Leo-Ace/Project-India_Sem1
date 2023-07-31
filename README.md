@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Config owlcarosel
 You need to inject a global window.jQuery first.
 
-In node-modules directory: react-script -> config -> webpack.config.js
+In node-modules directory: react-scripts -> config -> webpack.config.js
 
 plugins: [
 
@@ -21,7 +21,7 @@ plugins: [
 ## Available Scripts
 
 In the project directory, you can run:
-
+## `npm i json-server -g`
 ## `npm run server`
 ## `npm start`
 
