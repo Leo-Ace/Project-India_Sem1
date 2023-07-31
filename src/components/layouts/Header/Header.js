@@ -49,6 +49,7 @@ function Header() {
           }
         }
       });
+      if(!_wishlists.length) setWishlist(result);
     }
     run();
   }, [_wishlists, products]);
@@ -68,6 +69,10 @@ function Header() {
           }
         }
       });
+      if(!_carts.length) {
+        setprdInCarts(result);
+        setTotalPrice(result.reduce((a, b) => a + b.totalPrice, 0));
+      }
     }
     run();
   }, [_carts, products]);

@@ -38,6 +38,9 @@ function Favourite() {
           }
         }
       });
+      if(!_wishlists.length) {
+        setWishlist(result);
+      }
     }
     run();
   }, [_wishlists, products]);

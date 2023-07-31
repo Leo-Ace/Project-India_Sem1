@@ -40,6 +40,10 @@ function Cart() {
           }
         }
       });
+      if(!_carts.length) {
+        setCarts(result);
+        setSubTotal(result.reduce((a, b) => a + b.totalPrice, 0));
+      }
     }
     run();
   }, [_carts, products]);
@@ -81,6 +85,9 @@ function Cart() {
       });
       const action = deletePrdInCarts(id);
       dispatch(action);
+      // const result = carts.filter(item => Number(item.id_cart) !== Number(id));
+      // setCarts(result);
+      // setSubTotal(result.reduce((a, b) => a + b.totalPrice, 0));
     });
   }
 

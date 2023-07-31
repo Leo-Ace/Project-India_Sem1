@@ -564,26 +564,10 @@
   ],
   "carts": [
     {
-      "id": 3,
-      "id_product": 3,
-      "quantity": 1
-    },
-    {
-      "id": 4,
+      "id": 1,
       "id_product": 1,
-      "quantity": 1
-    },
-    {
-      "id": 5,
-      "id_product": 20,
-      "quantity": 2
+      "quantity": 4
     }
   ],
-  "wishlist": [
-    {
-      "id": 3,
-      "id_product": 14,
-      "state": 0
-    }
-  ]
+  "wishlist": []
 }
