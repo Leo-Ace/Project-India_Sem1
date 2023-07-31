@@ -44,9 +44,11 @@ function Header() {
           const obj = await {...prd, id_wishlist:item.id, status: item.status};
           result.push(obj);
           Object.preventExtensions(obj);
+          if(_wishlists.length === index + 1) {
+            setWishlist(result);
+          }
         }
       });
-      setWishlist(result);
     }
     run();
   }, [_wishlists, products]);
@@ -60,10 +62,12 @@ function Header() {
           const obj = await {...prd, quantity:item.quantity, id_cart:item.id, totalPrice: prd.price * item.quantity};
           result.push(obj);
           Object.preventExtensions(obj);
+          if(_carts.length === index + 1) {
+            setprdInCarts(result);
+            setTotalPrice(result.reduce((a, b) => a + b.totalPrice, 0));
+          }
         }
       });
-      setprdInCarts(result);
-      setTotalPrice(result.reduce((a, b) => a + b.totalPrice, 0));
     }
     run();
   }, [_carts, products]);

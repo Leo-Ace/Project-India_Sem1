@@ -1,11 +1,12 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import classNames from "classnames/bind";
 import styles from "./checkout.module.css";
 import { Link } from "react-router-dom";
 import { AiOutlineHome } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import $ from 'jquery';
+import { MainData } from "../../layouts/MainComponent";
 
 const cx = classNames.bind(styles);
 
@@ -13,12 +14,30 @@ function checkout() {
   const _carts = useSelector((state) => state.carts);
   const [carts, setCarts] = useState([]);
   const [total, setTotal] = useState(0);
+  const { products, categories } = useContext(MainData);
 
   useEffect(() => {
     $("html, body").animate({ scrollTop: 0 }, "slow");
-    setTotal(_carts.reduce((a, b) => a + Number(b.price) * Number(b.quantity), 0));
-    setCarts(_carts);
-  }, [_carts]);
+  }, []);
+
+  useEffect(() => {
+    const run = async () => {
+      const result = [];
+      await _carts.forEach(async (item, index) => {
+        const prd  = await products.find(a => a.id  === item.id_product);
+        if(prd) {
+          const obj = await {...prd, quantity:item.quantity, id_cart:item.id, totalPrice: prd.price * item.quantity};
+          result.push(obj);
+          Object.preventExtensions(obj);
+          if(_carts.length === index + 1) {
+            setTotal(result.reduce((a, b) => a + Number(b.price) * Number(b.quantity), 0));
+            setCarts(result);
+          }
+        }
+      });
+    }
+    run();
+  }, [_carts, products]);
   
   return (
     <>
@@ -39,19 +58,19 @@ function checkout() {
       </div>
       <div className="container-fluid mt-5">
         <div className={cx("row")}>
-          <div className="col-lg-6 p-3 shadow">
+          <div className="col-lg-6 p-3">
             <form action="" className={cx("w-100 shadow-none")}>
                 <h3>BILLING DETAILS</h3>
                 <div className="form-row d-flex justify-content-between">
                   <div className="form-group mt-3 col-lg-6">
-                    <label for="firstname"> <b>First Name</b> </label>
+                    <label htmlFor="firstname"> <b>First Name</b> </label>
                     <input type="text" className="form-control rounded-0" id="firstname" />
                     <div className="invalid-feedback">
                       Valid first name is required.
                     </div>
                   </div>
                   <div className="form-group mt-3 col-lg-6">
-                    <label for="lastname"> <b>Last Name</b> </label>
+                    <label htmlFor="lastname"> <b>Last Name</b> </label>
                     <input type="text" className="form-control rounded-0" id="lastname" />
                     <div className="invalid-feedback">
                       Valid last name is required.
@@ -59,11 +78,11 @@ function checkout() {
                   </div>
                 </div>
                 <div className="form-group mt-3">
-                  <label for=""> <b>Company name (optional)</b> </label>
+                  <label htmlFor=""> <b>Company name (optional)</b> </label>
                   <input type="text" className="form-control rounded-0" id="email" required />
                 </div>
                 <div className="form-group mt-3">
-                  <label for="adress"><b>Stress address</b> </label>
+                  <label htmlFor="adress"><b>Stress address</b> </label>
                   <input
                     type="text"
                     className="form-control rounded-0"
@@ -77,9 +96,9 @@ function checkout() {
                 </div>
                 <div className="row">
                   <div className="form-group mt-3 col-lg-4">
-                    <label for="country"> <b>Country</b> </label>
+                    <label htmlFor="country"> <b>Country</b> </label>
                     <select type="text" className="form-control rounded-0" id="country">
-                      <option disabled> <b className={cx("text-secondary")}>Choose...</b> </option>
+                      <option className={cx("text-secondary")} disabled>Choose...</option>
                       <option> United Kingdom </option>
                     </select>
                     <div className="invalid-feedback">
@@ -87,9 +106,9 @@ function checkout() {
                     </div>
                   </div>
                   <div className="form-group mt-3 col-lg-4">
-                    <label for="city"> <b>City</b> </label>
+                    <label htmlFor="city"> <b>City</b> </label>
                     <select type="text" className="form-control rounded-0" id="city">
-                      <option disabled> <b className={cx("text-secondary")}>Choose...</b> </option>
+                      <option disabled className={cx("text-secondary")}>Choose... </option>
                       <option> London </option>
                     </select>
                     <div className="invalid-feedback">
@@ -97,9 +116,9 @@ function checkout() {
                     </div>
                   </div>
                   <div className="form-group mt-3 col-lg-4">
-                    <label for="postcode"> <b>Postcode</b> </label>
+                    <label htmlFor="postcode"> <b>Postcode</b> </label>
                     <select type="text" className="form-control rounded-0" id="postcode">
-                      <option disabled> <b className={cx("text-secondary")}>Choose...</b> </option>
+                      <option disabled className={cx("text-secondary")}>Choose... </option>
                       <option> NW6 2LS </option>
                     </select>
                     <div className="invalid-feedback">Postcode required.</div>
@@ -107,7 +126,7 @@ function checkout() {
                 </div>
             </form>
           </div>
-          <div className="col-lg-6 p-3 shadow">
+          <div className="col-lg-6 p-3">
             <h3>YOUR ORDER</h3>
             <table border={1} cellPadding={5} cellSpacing={0} className="table border">
               <thead>
@@ -140,11 +159,10 @@ function checkout() {
                   className="form-check-input"
                   id="credit"
                   name="payment-method"
-                  checked
+                  defaultChecked
                   required
                 />
-                <label for="credit" className="form-check-label">
-                  {" "}
+                <label htmlFor="credit" className="form-check-label">
                   Chayque Payment
                 </label>
                 <div className={cx("bg-info ml-5", "triangle")}></div>
@@ -161,9 +179,8 @@ function checkout() {
                   name="payment-method"
                   required
                 />
-                <label for="paypal" className="form-check-label">
-                  {" "}
-                  PayPal{" "}
+                <label htmlFor="paypal" className="form-check-label">
+                  PayPal
                 </label>
                 <img
                   className="w-25 ml-3"
@@ -176,8 +193,7 @@ function checkout() {
               className="btn btn-primary bt-lg btn-block mt-5 rounded-0"
               type="submit"
             >
-              {" "}
-              <b>Continue to Checkout</b>{" "}
+              <b>Continue to Checkout</b>
             </button>
           </div>
         </div>
