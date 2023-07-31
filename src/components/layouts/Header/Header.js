@@ -24,10 +24,10 @@ function Header() {
   const [prdInCarts, setprdInCarts] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
 
-  const carts = useSelector((state) => state.carts);
-  const wishlists = useSelector((state) => state.wishlist);
+  const _carts = useSelector((state) => state.carts);
+  const _wishlists = useSelector((state) => state.wishlist);
   const dispatch = useDispatch();
-  const { categories } = useContext(MainData);
+  const { products, categories } = useContext(MainData);
 
   const boxMenu = useRef();
   const headerMenu = useRef();
@@ -36,13 +36,37 @@ function Header() {
   const linkDropdownShop = useRef();
 
   useEffect(() => {
-    setWishlist(wishlists);
-  }, [wishlists]);
+    const run = async () => {
+      const result = [];
+      await _wishlists.forEach(async (item, index) => {
+        const prd = await products.find(a => a.id  === item.id_product);
+        if(prd) {
+          const obj = await {...prd, id_wishlist:item.id, status: item.status};
+          result.push(obj);
+          Object.preventExtensions(obj);
+        }
+      });
+      setWishlist(result);
+    }
+    run();
+  }, [_wishlists, products]);
 
   useEffect(() => {
-    setprdInCarts(carts);
-    setTotalPrice(carts.reduce((a, b) => a + b.totalPrice, 0));
-  }, [carts]);
+    const run = async () => {
+      const result = [];
+      await _carts.forEach(async (item, index) => {
+        const prd  = await products.find(a => a.id  === item.id_product);
+        if(prd) {
+          const obj = await {...prd, quantity:item.quantity, id_cart:item.id, totalPrice: prd.price * item.quantity};
+          result.push(obj);
+          Object.preventExtensions(obj);
+        }
+      });
+      setprdInCarts(result);
+      setTotalPrice(result.reduce((a, b) => a + b.totalPrice, 0));
+    }
+    run();
+  }, [_carts, products]);
 
   useEffect(() => {
     // styles
@@ -94,13 +118,9 @@ function Header() {
 
   // delete prd in cart
   const deletePrdInCart = (id_cart) => {
-    carts.forEach((item, index) => {
-      if (item.id_cart === id_cart) {
-        DelProductInCarts(id_cart, (data) => {
-          const action = deletePrdInCarts(index);
-          dispatch(action);
-        });
-      }
+    DelProductInCarts(id_cart, (data) => {
+      const action = deletePrdInCarts(id_cart);
+      dispatch(action);
     });
   };
 

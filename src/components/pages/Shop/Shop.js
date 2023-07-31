@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useSearchParams } from "react-router-dom";
 import $ from 'jquery';
 import { MainData } from "../../layouts/MainComponent";
-import { CreateCart, CreateWishlist, DelProductInCarts, DelProductInWishlist, ProductsById, getProductsByPaginate } from "../../../Services/AllSevice";
-import { createCart, deletePrdInCarts } from "../../../redux/reducers/carts";
+import { CreateCart, CreateWishlist, DelProductInWishlist, ProductsById, getProductsByPaginate } from "../../../Services/AllSevice";
+import { createCart } from "../../../redux/reducers/carts";
 import { AiOutlineHome } from "react-icons/ai";
 import { deletePrdInWishlist, updateWishlist } from "../../../redux/reducers/wishlist";
 import { BsCartPlus, BsCheckLg, BsFillHeartFill, BsHeart, BsSearch, BsStarFill } from "react-icons/bs";
@@ -31,8 +31,8 @@ function Shop() {
   const [totalPage, setTotalPage] = useState([1]);
   const _carts = useSelector((state) => state.carts);
   const _wishlists = useSelector((state) => state.wishlist);
-  const listIdInCart = _carts.map((item) => item.id);
-  const listIdInWishlist = _wishlists.map((item) => item.id);
+  const listIdInCart = _carts.map((item) => item.id_product);
+  const listIdInWishlist = _wishlists.map((item) => item.id_product);
   const inpTo = useRef();
   const inpFrom = useRef();
   const inpTo2 = useRef();
@@ -133,61 +133,42 @@ function Shop() {
     setKeyMenu('');
     setKeyBrand('');
   }, [keyname]);
-  
-  const handleCart = (id_product, check) => {
-    if (check) {
-      _carts.forEach((item, index) => {
-        if (item.id === id_product) {
-          DelProductInCarts(item.id_cart, (data) => {
-            const action = deletePrdInCarts(index);
-            dispatch(action);
-          });
-        }
+
+  const handleCart = (id_product) => {
+    const idMax = Number(Math.max(..._carts.map(item=>item.id), 0));
+    const newData = {
+      id: idMax + 1,
+      id_product: id_product,
+      quantity: 1,
+    };
+    CreateCart(newData, (result) => {
+      Swal.fire({
+        title: 'Added to cart!',
+        timer: 1000,
+        showCancelButton: false,
+        showConfirmButton: false,
+        position: 'top-left',
+        color: 'green',
+        customClass: 'swal-height',
+        heightAuto: false,
       });
-    } else if (!check) {
-      const idMax = Number(Math.max(...listIdInCart, 0));
-      ProductsById(id_product, (data) => {
-        const newData = {
-          id: idMax + 1,
-          id_product: id_product,
-          quantity: 1,
-        };
-        CreateCart(newData, (result) => {
-          Swal.fire({
-            title: 'Added to cart!',
-            timer: 1000,
-            showCancelButton: false,
-            showConfirmButton: false,
-            position: 'top-left',
-            color: 'green',
-            customClass: 'swal-height',
-            heightAuto: false,
-          });
-          const action = createCart({
-            ...data,
-            quantity: newData.quantity,
-            id_cart: newData.id,
-            totalPrice: data.price * newData.quantity,
-          });
-          dispatch(action);
-        });
-      });
-    }
+      const action = createCart(newData);
+      dispatch(action);
+    });
   };
 
   const handleWishlist = (id_product, check) => {
     if (check) {
       _wishlists.forEach((item, index) => {
-        if (item.id === id_product) {
-          DelProductInWishlist(item.id_wishlist, (data) => {
-            const action = deletePrdInWishlist(index);
+        if (item.id_product === id_product) {
+          DelProductInWishlist(item.id, (data) => {
+            const action = deletePrdInWishlist(item.id);
             dispatch(action);
           });
         }
       });
     } else if (!check) {
-      const idMax = Number(Math.max(...listIdInWishlist, 0));
-      const prd = products.find(item => item.id === id_product);
+      const idMax = Number(Math.max(..._wishlists.map(item=>item.id), 0));
       const newData = {
         id: idMax + 1,
         id_product: id_product,
@@ -204,7 +185,7 @@ function Shop() {
           customClass: 'swal-height',
           heightAuto: false,
         });
-        const action = updateWishlist({...prd, id_wishlist: idMax + 1,state: 0})
+        const action = updateWishlist(newData);
         dispatch(action);
       });
     }
@@ -548,18 +529,19 @@ function Shop() {
                           {listIdInCart.includes(item.id) ? (
                             <li
                               className={cx("mb-2")}
-                              onClick={() => handleCart(item.id, true)}
                             >
-                              <BsCheckLg
-                                fontSize={18}
-                                color="green"
-                                className={cx("item-icon")}
-                              />
+                              <Link to={'/shop/cart'}>
+                                <BsCheckLg
+                                  fontSize={18}
+                                  color="green"
+                                  className={cx("item-icon")}
+                                />
+                              </Link>
                             </li>
                           ) : (
                             <li
                               className={cx("mb-2")}
-                              onClick={() => handleCart(item.id, false)}
+                              onClick={() => handleCart(item.id)}
                             >
                               <BsCartPlus
                                 fontSize={18}

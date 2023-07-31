@@ -8,7 +8,8 @@ const wishlistReducer = createSlice({
       return action.payload;
     },
     deletePrdInWishlist: (state, action) => {
-      state.splice(action.payload, 1);
+      const result = state.filter(item => item.id !== action.payload);
+      return result;
     },
     updateWishlist: (state, action) => {
       state.push(action.payload);

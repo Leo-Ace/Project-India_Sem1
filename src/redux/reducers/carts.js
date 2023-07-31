@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { useDispatch } from "react-redux";
 
 const cartsReducer = createSlice({
   name: 'carts',
@@ -8,7 +9,8 @@ const cartsReducer = createSlice({
       return action.payload;
     },
     deletePrdInCarts: (state, action) => {
-      state.splice(action.payload, 1);
+      const result = state.filter(item => item.id !== action.payload);
+      return result;
     },
     updateCart: (state, action) => {
       return action.payload;

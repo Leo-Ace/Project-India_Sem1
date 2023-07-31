@@ -41,10 +41,10 @@ function DetailProduct() {
   const [category, setCategory] = useState({});
   const [count, setCount] = useState(1);
   const { id } = useParams();
-  const carts = useSelector((state) => state.carts);
-  const listIdPrdInCarts = carts.map((item) => item.id);
-  const wishlist = useSelector((state) => state.wishlist);
-  const listIdPrdInWishlist = wishlist.map((item) => item.id);
+  const _carts = useSelector((state) => state.carts);
+  const _wishlists = useSelector((state) => state.wishlist);
+  const listIdPrdInCarts = _carts.map((item) => item.id_product);
+  const listIdPrdInWishlist = _wishlists.map((item) => item.id_product);
   const elemCount = useRef();
   const dispatch = useDispatch();
 
@@ -61,12 +61,11 @@ function DetailProduct() {
   }, [id]);
 
   const handleCart = () => {
-    const idMax = Number(Math.max(...listIdPrdInCarts, 0));
-    const quatityValue = Number(elemCount.current.value);
+    const idMax = Number(Math.max(..._carts.map(item=>item.id), 0));
     const newData = {
       id: idMax + 1,
-      id_product: product.id,
-      quantity: quatityValue
+      id_product: Number(id),
+      quantity: Number(elemCount.current.value),
     };
     CreateCart(newData, (result) => {
       Swal.fire({
@@ -79,29 +78,23 @@ function DetailProduct() {
         customClass: 'swal-height',
         heightAuto: false,
       });
-      const action = createCart({
-        ...product,
-        quantity: newData.quantity,
-        id_cart: newData.id,
-        totalPrice: product.price * newData.quantity
-      });
+      const action = createCart(newData);
       dispatch(action);
     });
   };
 
   const handleWishlist = (id_product, check) => {
     if (check) {
-      wishlist.forEach((item, index) => {
-        if (item.id === id_product) {
-          DelProductInWishlist(item.id_wishlist, (data) => {
-            const action = deletePrdInWishlist(index);
+      _wishlists.forEach((item, index) => {
+        if (item.id_product === id_product) {
+          DelProductInWishlist(item.id, (data) => {
+            const action = deletePrdInWishlist(item.id);
             dispatch(action);
           });
         }
       });
     } else if (!check) {
-      const idMax = Number(Math.max(...listIdPrdInWishlist, 0));
-      const prd = products.find(item => item.id === id_product);
+      const idMax = Number(Math.max(..._wishlists.map(item=>item.id), 0));
       const newData = {
         id: idMax + 1,
         id_product: id_product,
@@ -118,7 +111,7 @@ function DetailProduct() {
           customClass: 'swal-height',
           heightAuto: false,
         });
-        const action = updateWishlist({...prd, id_wishlist: idMax + 1,state: 0})
+        const action = updateWishlist(newData);
         dispatch(action);
       });
     }

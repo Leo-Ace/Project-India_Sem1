@@ -9,42 +9,65 @@ import { createCart } from '../../../redux/reducers/carts';
 import { CreateCart, DelProductInWishlist } from '../../../Services/AllSevice';
 import { deletePrdInWishlist } from '../../../redux/reducers/wishlist';
 import $ from 'jquery';
+import Swal from 'sweetalert2';
 
 const cx = classNames.bind(styles);
 
 function Favourite() {
   const dispatch = useDispatch();
-  const {categories, brand, cateChild, products} = useContext(MainData);
-  const _favorite = useSelector((state) => state.wishlist);
+  const { products } = useContext(MainData);
+  const _wishlists = useSelector((state) => state.wishlist);
   const _carts = useSelector((state) => state.carts);
   const [wishlist, setWishlist] = useState([]);
-  const [listIdInCarts, setListIdInCarts] = useState('');
+  const listIdInCarts = _carts.map(item=>item.id_product);
   useEffect(() => {
     $("html, body").animate({ scrollTop: 0 }, "slow");
   }, []);
 
   useEffect(() => {
-    const idIncarts = _carts.map(item=>item.id); 
-    setListIdInCarts(idIncarts); 
-    setWishlist(_favorite);
-  }, [_carts, _favorite]);
+    const run = async () => {           
+      const result = [];
+      await _wishlists.forEach(async (item, index) => {
+        const prd = await products.find(a => a.id  === item.id_product);
+        if(prd) {
+          const obj = await {...prd, id_wishlist:item.id, status: item.status};
+          result.push(obj);
+          Object.preventExtensions(obj);
+          if(_wishlists.length === index + 1) {
+            setWishlist(result);
+          }
+        }
+      });
+    }
+    run();
+  }, [_wishlists, products]);
 
-  const addToCart = (item) => {
-    const {id_wishlist, status, ...elem} = item;
-    const newIdCart = [...listIdInCarts].pop() ? [...listIdInCarts].pop() + 1 : 0;
-    const newData = {id_product: elem.id, quantity: 1};
+  const addToCart = (id_product) => {
+    const idMax = Number(Math.max(..._carts.map(item=>item.id), 0));
+    const newData = {
+      id: idMax + 1,
+      id_product: id_product,
+      quantity: 1,
+    };
     CreateCart(newData, (result) => {
-      if(result.length) {
-        const data = {...elem, id_cart: newIdCart, quantity: 1, totalPrice: elem.price};
-        const action = createCart(data);
-        dispatch(action);
-      }
+      Swal.fire({
+        title: 'Added to cart!',
+        timer: 1000,
+        showCancelButton: false,
+        showConfirmButton: false,
+        position: 'top-left',
+        color: 'green',
+        customClass: 'swal-height',
+        heightAuto: false,
+      });
+      const action = createCart(newData);
+      dispatch(action);
     });
-  }
+  };
 
   const deleteFavourite = (id, index) => {
     DelProductInWishlist(id, (result) => {
-      const action = deletePrdInWishlist(index);
+      const action = deletePrdInWishlist(id);
       dispatch(action);
     });
   }
@@ -99,7 +122,7 @@ function Favourite() {
                       {listIdInCarts.includes(item.id) ? (
                         <Link to={'/shop/cart'} type="button" className={cx("btn btn-info")}>View cart</Link> )
                         : (
-                          <button onClick={() => addToCart(item)} type="button" className={cx("btn btn-danger")}>Add to cart</button>
+                          <button onClick={() => addToCart(item.id)} type="button" className={cx("btn btn-danger")}>Add to cart</button>
                         )
                       }
                       <button type='button' className={cx("position-absolute border-0 bg-transparent d-block", "btnDelete")} onClick={() => deleteFavourite(item.id_wishlist, index)}><span className={cx("d-block p-0 m-0")} >

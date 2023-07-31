@@ -564,30 +564,25 @@
   ],
   "carts": [
     {
-      "id": 1,
+      "id": 3,
+      "id_product": 3,
+      "quantity": 1
+    },
+    {
+      "id": 4,
       "id_product": 1,
       "quantity": 1
     },
     {
-      "id": 2,
-      "id_product": 6,
-      "quantity": 1
-    },
-    {
-      "id": 7,
-      "id_product": 24,
-      "quantity": 1
+      "id": 5,
+      "id_product": 20,
+      "quantity": 2
     }
   ],
   "wishlist": [
     {
-      "id": 1,
-      "id_product": 24,
-      "state": 0
-    },
-    {
-      "id": 25,
-      "id_product": 13,
+      "id": 3,
+      "id_product": 14,
       "state": 0
     }
   ]

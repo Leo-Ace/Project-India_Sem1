@@ -15,16 +15,34 @@ const cx = classNames.bind(styles);
 
 function Cart() {
   const dispatch = useDispatch();
+  const { products } = useContext(MainData);
   const _carts = useSelector((state) => state.carts);
   const [carts, setCarts] = useState([]);
   const [shipping, setShipping] = useState(0);
   const [subTotal, setSubTotal] = useState(0);
-  
+
   useEffect(() => {
     $("html, body").animate({ scrollTop: 0 }, "slow");
-    setCarts(_carts);
-    setSubTotal(_carts.reduce((a, b) => a + b.quantity* b.price, 0));
-  }, [_carts]);
+  }, []);
+
+  useEffect(() => {
+    const run = async () => {
+      const result = [];
+      await _carts.forEach(async (item, index) => {
+        const prd  = await products.find(a => a.id  === item.id_product);
+        if(prd) {
+          const obj = await {...prd, quantity:item.quantity, id_cart:item.id, totalPrice: prd.price * item.quantity};
+          result.push(obj);
+          Object.preventExtensions(obj);
+          if(_carts.length === index + 1) {
+            setCarts(result);
+            setSubTotal(result.reduce((a, b) => a + b.totalPrice, 0));
+          }
+        }
+      });
+    }
+    run();
+  }, [_carts, products]);
 
   const handleCount = (key, id) => {
     const demo = [...carts];
@@ -61,7 +79,7 @@ function Cart() {
         customClass: 'swal-height',
         heightAuto: false,
       });
-      const action = deletePrdInCarts(index);
+      const action = deletePrdInCarts(id);
       dispatch(action);
     });
   }
@@ -87,8 +105,7 @@ function Cart() {
           customClass: 'swal-height',
           heightAuto: false,
         });
-        console.log(carts)
-        const action = updateCart(carts);
+        const action = updateCart(result);
         dispatch(action);
         setSubTotal(carts.reduce((a, b) => a + b.quantity* b.price, 0));
       }

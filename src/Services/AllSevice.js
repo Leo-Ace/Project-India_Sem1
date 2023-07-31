@@ -86,10 +86,10 @@ export const DelProductInWishlist = async (id, callback) => {
   const [data, err] = await deleteWishlist(id);
   if(data) {
     callback(data);
-    console.log('Delete prd Carts Successfully!');
+    console.log('Delete prd Wishlist Successfully!');
   } else if(err) {
     callback([]);
-    console.log('Delete prd Carts Unsuccessful!');
+    console.log('Delete prd Wishlist Unsuccessful!');
   }
 }
 
@@ -97,10 +97,10 @@ export const CreateWishlist = async (newData, callback) => {
   const [data, err] = await createWishlist(newData);
   if(data) {
     callback(data);
-    console.log('Create Cart Successfully!');
+    console.log('Create Wishlist Successfully!');
   } else if(err) {
     callback([]);
-    console.log('Create Cart Unsuccessful!');
+    console.log('Create Wishlist Unsuccessful!');
   }
 }
 
